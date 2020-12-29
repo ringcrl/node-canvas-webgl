@@ -5,25 +5,20 @@ require('jsdom-global')();
 const {mockDOM} = require('../lib');
 mockDOM(window, {mockImage: true});
 const Jimp = require('jimp');
-
-
 const PIXI = require('pixi.js');
 
 const screenWidth = 800;
 const screenHeight = 600;
 
 async function main() {
-  const canvas = document.createElement('canvas');
-  canvas.width = screenWidth;
-  canvas.height = screenHeight;
-
   const app = new PIXI.Application({
-    view: canvas,
+    width: screenWidth,
+    height: screenHeight,
     backgroundColor: 0x1099bb,
     resolution: window.devicePixelRatio || 1,
     preserveDrawingBuffer: true,
   });
-  document.body.appendChild(canvas);
+  document.body.appendChild(app.view);
 
   const container = new PIXI.Container();
 
@@ -58,7 +53,9 @@ async function main() {
     // rotate the container!
     // use delta to create frame-independent transform
     container.rotation -= 0.01 * delta;
-    const canvasBuffer = canvas.toBuffer();
+    console.time('toBuffer')
+    const canvasBuffer = app.view.toBuffer();
+    console.timeEnd('toBuffer')
     fs.writeFileSync('./snapshot/pixi.png', canvasBuffer);
   });
 }
