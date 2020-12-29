@@ -11,7 +11,7 @@
       // "preLaunchTask": "xvfb-run -s \"-ac -screen 0 1280x1024x24\"",
       "request": "launch",
       // "program": "${file}",
-      "program": "./test/pixi.js",
+      "program": "./test/pixi3.js",
       "cwd": "${workspaceFolder}",
       "outputCapture" : "std",
     },
