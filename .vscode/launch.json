@@ -7,11 +7,14 @@
     {
       "name": "JS",
       "type": "node",
-      // 下面不能直接运行，最后运行方式形如：xvfb-run -s "-ac -screen 0 1280x1024x24" node test/pixi.js
-      // "preLaunchTask": "xvfb-run -s \"-ac -screen 0 1280x1024x24\"",
+      // linux下需要这样运行：xvfb-run -s "-ac -screen 0 1280x1024x24" node test/pixi.js
+      // https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-support-for-npm-and-other-tools
+      // "runtimeExecutable": "xvfb-run",
+      // "runtimeArgs": [
+      //   "-s", "-ac -screen 0 1280x1024x24", "node test/index.js"
+      // ],
       "request": "launch",
-      // "program": "${file}",
-      "program": "./test/pixi3.js",
+      "program": "${file}",
       "cwd": "${workspaceFolder}",
       "outputCapture" : "std",
     },
