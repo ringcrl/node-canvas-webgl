@@ -7,11 +7,13 @@
     {
       "name": "JS",
       "type": "node",
+      // 下面不能直接运行，最后运行方式形如：xvfb-run -s "-ac -screen 0 1280x1024x24" node test/pixi.js
+      // "preLaunchTask": "xvfb-run -s \"-ac -screen 0 1280x1024x24\"",
       "request": "launch",
       // "program": "${file}",
       "program": "./test/pixi.js",
       "cwd": "${workspaceFolder}",
-      "outputCapture" : "std"
+      "outputCapture" : "std",
     },
   ]
 }
