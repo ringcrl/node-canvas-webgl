@@ -24,6 +24,7 @@
   "dependencies": {
     "canvas": "^2.6.0",
     "gl": "^4.4.0",
+    "jimp": "^0.16.1",
     "pixi.js": "^5.3.6",
     "pixi.js-legacy": "^5.3.6"
   }
