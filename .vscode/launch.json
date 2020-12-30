@@ -2,17 +2,17 @@
   // Use IntelliSense to learn about possible attributes.
   // Hover to view descriptions of existing attributes.
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
+  "version": "0.0.1",
   "configurations": [
     {
       "name": "JS",
       "type": "node",
       // linux下需要这样运行：xvfb-run -s "-ac -screen 0 1280x1024x24" node test/pixi.js
       // https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-support-for-npm-and-other-tools
-      // "runtimeExecutable": "xvfb-run",
-      // "runtimeArgs": [
-      //   "-s", "-ac -screen 0 1280x1024x24", "node test/index.js"
-      // ],
+      "runtimeExecutable": "xvfb-run",
+      "runtimeArgs": [
+        "-s", "-ac -screen 0 1280x1024x24", "node"
+      ],
       "request": "launch",
       "program": "${file}",
       "cwd": "${workspaceFolder}",
